@@ -12,7 +12,32 @@ import CoreText
 import UIKit
 
 class Downloader {
-    class func load(URL: NSURL, closure: @escaping ((UIFont) -> Void)) -> Void{
+    
+    class func fetchFontMetaData(for url: URL, completion: @escaping ((String) -> Void)) -> Void{
+        let session = URLSession(configuration: URLSessionConfiguration.default)
+        let request = NSMutableURLRequest(url: url)
+        request.httpMethod = "GET"
+        let task = session.dataTask(with: request as URLRequest) { (data, response, error) -> Void in
+            if (error == nil) {
+                let statusCode = (response as! HTTPURLResponse).statusCode
+                print("Success: \(statusCode)")
+                guard let responseData = data else {
+                    completion("")
+                    return
+                }
+            
+                let dataStr = String(describing: String(bytes: responseData, encoding: .utf8))
+                print("\(dataStr)")
+                completion(dataStr)
+            }else {
+                print("Faulure: %@", error?.localizedDescription ?? "")
+                completion("")
+            }
+        }
+        task.resume()
+    }
+    
+    class func load(URL: URL, closure: @escaping ((UIFont) -> Void)) -> Void{
         let session = URLSession(configuration: URLSessionConfiguration.default)
         let request = NSMutableURLRequest(url: URL as URL)
         request.httpMethod = "GET"
@@ -21,11 +46,17 @@ class Downloader {
                 // Success
                 let statusCode = (response as! HTTPURLResponse).statusCode
                 print("Success: \(statusCode)")
-                
+                guard let responseData = data else {
+                    return
+                }
                 // This is your file-variable:
                 // data
-                                
-                if let fontData = data , let dataProvider: CGDataProvider = CGDataProvider(data: fontData as CFData), let cgFont = CGFont(dataProvider){
+                print("\(String(describing: String(bytes: responseData, encoding: .utf8)))")
+//                if let result: Any = try? JSONSerialization.jsonObject(with: responseData, options: []) as Any{
+//                    print("\(result)")
+//                }
+               
+                if let dataProvider: CGDataProvider = CGDataProvider(data: responseData as CFData), let cgFont = CGFont(dataProvider){
                     var error: Unmanaged<CFError>?
                     if !CTFontManagerRegisterGraphicsFont(cgFont, &error){
                         print("Error loading Font!")
@@ -47,7 +78,7 @@ class Downloader {
             }
             else {
                 // Failure
-                print("Faulure: %@", error?.localizedDescription ?? "");
+                print("Faulure: %@", error?.localizedDescription ?? "")
             }
         }
         task.resume()

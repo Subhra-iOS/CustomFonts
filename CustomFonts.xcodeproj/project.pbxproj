@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2AA1517026C3FDF400BBE6D3 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA1516F26C3FDF400BBE6D3 /* String+Extension.swift */; };
 		981B792D1C0DC18600815AC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981B792C1C0DC18600815AC3 /* AppDelegate.swift */; };
 		981B792F1C0DC18600815AC3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981B792E1C0DC18600815AC3 /* ViewController.swift */; };
 		981B79321C0DC18600815AC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 981B79301C0DC18600815AC3 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2AA1516F26C3FDF400BBE6D3 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		981B79271C0DC18600815AC3 /* CustomFonts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomFonts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		981B792B1C0DC18600815AC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		981B792C1C0DC18600815AC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 		981B79291C0DC18600815AC3 /* CustomFonts */ = {
 			isa = PBXGroup;
 			children = (
+				2AA1516F26C3FDF400BBE6D3 /* String+Extension.swift */,
 				981B792C1C0DC18600815AC3 /* AppDelegate.swift */,
 				981B792E1C0DC18600815AC3 /* ViewController.swift */,
 				981B794F1C0DD1BD00815AC3 /* Downloader.swift */,
@@ -216,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AA1517026C3FDF400BBE6D3 /* String+Extension.swift in Sources */,
 				981B792F1C0DC18600815AC3 /* ViewController.swift in Sources */,
 				981B792D1C0DC18600815AC3 /* AppDelegate.swift in Sources */,
 				981B79501C0DD1BD00815AC3 /* Downloader.swift in Sources */,
