@@ -47,8 +47,12 @@ class ViewController: UIViewController {
                 let formatedFontStyle: String = fontStyle.between(" ", ";\\n") ?? ""
                 print("\(formatedFontStyle)")
                 let url = URL(string: extractUrl)!
-                Downloader.load(URL: url) { [weak self] (font) in
-                    self?.customFont = font
+                Downloader.load(URL: url) { [weak self] (fontName) in
+                    DispatchQueue.main.async {
+                        if let uiFont : UIFont = UIFont(name: fontName, size: 30.0) {
+                            self?.customFont = uiFont
+                        }
+                    }
                 }
             }
         }

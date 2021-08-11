@@ -37,7 +37,7 @@ class Downloader {
         task.resume()
     }
     
-    class func load(URL: URL, closure: @escaping ((UIFont) -> Void)) -> Void{
+    class func load(URL: URL, closure: @escaping ((String) -> Void)) -> Void{
         let session = URLSession(configuration: URLSessionConfiguration.default)
         let request = NSMutableURLRequest(url: URL as URL)
         request.httpMethod = "GET"
@@ -60,17 +60,18 @@ class Downloader {
                     var error: Unmanaged<CFError>?
                     if !CTFontManagerRegisterGraphicsFont(cgFont, &error){
                         print("Error loading Font!")
-                        DispatchQueue.main.async{
-                            closure(UIFont(name: "Arial", size: 30.0)!)
-                        }
+                       // DispatchQueue.main.async{
+                            closure("Arial")
+                        //}
                     } else {
                         if let fontName: String = cgFont.postScriptName as String?{
-                            DispatchQueue.main.async {
-                                if let uiFont : UIFont = UIFont(name: String(describing: fontName) , size: 30){
-                                    print("\(uiFont.familyName)")
-                                    closure(uiFont)
-                                }
-                            }
+                            //DispatchQueue.main.async {
+                                //if let uiFont : UIFont = UIFont(name: String(describing: fontName) , size: 30){
+                                  //  print("\(uiFont.familyName)")
+                                    print("\(fontName)")
+                                    closure(fontName)
+                               // }
+                            //}
                         }
                     }
                 }
