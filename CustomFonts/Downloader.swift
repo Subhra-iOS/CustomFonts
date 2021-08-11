@@ -13,8 +13,7 @@ import UIKit
 
 class Downloader {
     class func load(URL: NSURL, closure: @escaping ((UIFont) -> Void)) -> Void{
-        let sessionConfig = URLSessionConfiguration.default
-        let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+        let session = URLSession(configuration: URLSessionConfiguration.default)
         let request = NSMutableURLRequest(url: URL as URL)
         request.httpMethod = "GET"
         let task = session.dataTask(with: request as URLRequest) { (data, response, error) -> Void in
