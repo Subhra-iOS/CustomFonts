@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  CustomFonts
 //
-//  Created by Subhra Roy on 22/07/21.
+//  Created by Subhra Roy on 11/08/21.
 //  Copyright © 2021 Subhra Roy. All rights reserved.
 //
 
@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func pushNewFontButton(sender: Any) {
-        if let url = NSURL(string: fonts[2]) {
+        if let url = NSURL(string: fonts[0]) {
                 Downloader.load(URL: url) { [weak self] (font) in
                     self?.customFont = font
                 }
