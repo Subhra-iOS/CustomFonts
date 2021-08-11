@@ -10,7 +10,7 @@ import UIKit
 
 /**"@font-face {\n  font-family: \'Tangerine\';\n  font-style: normal;\n  font-weight: 400;\n  src: url(https://fonts.gstatic.com/s/tangerine/v12/IurY6Y5j_oScZZow4VOxCZZJ.ttf) format(\'truetype\');\n}\n"*/
 
-/**"@font-face {\n  font-family: \'Tangerine\';\n  font-style: normal;\n  font-weight: 400;\n  src: url(https://fonts.gstatic.com/s/tangerine/v12/IurY6Y5j_oScZZow4VOxCZZJ.ttf) format(\'truetype\');\n}\n"*/
+/**"@font-face {\n  font-family: \'Open Sans\';\n  font-style: normal;\n  font-weight: 400;\n  src: url(https://fonts.gstatic.com/s/opensans/v23/mem8YaGs126MiZpBA-UFVZ0e.ttf) format(\'truetype\');\n}\n"*/
 
 struct FontsCollection {
     private let fontsArray = ["http://www.webpagepublicity.com/free-fonts/e/Earthquake%20MF.ttf", //0
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func pushNewFontButton(sender: Any) {
-        if let url = URL(string: fonts[5]) {
+        if let url = URL(string: fonts[4]) {
             Downloader.fetchFontMetaData(for: url) { (urlStr) in
                 let extractUrl: String = urlStr.between("url(", ")") ?? ""
                 let fontFamily: String = urlStr.between("font-family:", "font-style:") ?? ""
