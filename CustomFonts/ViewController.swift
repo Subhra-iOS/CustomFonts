@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func pushNewFontButton(sender: Any) {
-        if let url = NSURL(string: fonts[0]) {
+        if let url = NSURL(string: fonts[2]) {
                 Downloader.load(URL: url) { [weak self] (font) in
                     self?.customFont = font
                 }
