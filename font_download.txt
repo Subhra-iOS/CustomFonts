@@ -1,0 +1,64 @@
+Thin 100
+https://fonts.googleapis.com/css2?family=Roboto:wght@100
+
+Thin 100 italic
+https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100
+
+Extra-light 200
+https://fonts.googleapis.com/css2?family=Georama:wght@200
+
+Extra-light 200 italic
+https://fonts.googleapis.com/css2?family=Georama:ital,wght@1,200
+
+Light 300 italic
+https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300
+
+Light 300
+https://fonts.googleapis.com/css2?family=Open+Sans:wght@300
+
+Regular 400
+https://fonts.googleapis.com/css2?family=Open+Sans
+
+Regular 400 italic
+https://fonts.googleapis.com/css2?family=Open+Sans:ital@1
+
+Medium 500
+https://fonts.googleapis.com/css2?family=Roboto:wght@500
+
+Medium 500 italic
+https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500
+
+Semi-bold 600
+https://fonts.googleapis.com/css2?family=Open+Sans:wght@600
+
+Semi-bold 600 italic
+https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,600
+
+Bold 700
+https://fonts.googleapis.com/css2?family=Open+Sans:wght@700
+
+Bold 700 italic
+https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,700
+
+Extra-bold 800
+https://fonts.googleapis.com/css2?family=Open+Sans:wght@800
+
+Extra-bold 800 italic
+https://fonts.googleapis.com/css2?family=Open+Sans:wght@800
+
+Black 900
+https://fonts.googleapis.com/css2?family=Roboto:wght@900
+
+Black 900 italic
+https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900
+
+static String splitCamelCase(String s) {
+   return s.replaceAll(
+      String.format("%s|%s|%s",
+         "(?<=[A-Z])(?=[A-Z][a-z])",
+         "(?<=[^A-Z])(?=[A-Z])",
+         "(?<=[A-Za-z])(?=[^A-Za-z])"
+      ),
+      " "
+   );
+}

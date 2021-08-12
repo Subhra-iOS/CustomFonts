@@ -13,15 +13,21 @@ import UIKit
 /**"@font-face {\n  font-family: \'Open Sans\';\n  font-style: normal;\n  font-weight: 400;\n  src: url(https://fonts.gstatic.com/s/opensans/v23/mem8YaGs126MiZpBA-UFVZ0e.ttf) format(\'truetype\');\n}\n"*/
 
 struct FontsCollection {
-    private let fontsArray = ["http://www.webpagepublicity.com/free-fonts/e/Earthquake%20MF.ttf", //0
+   /* private let fontsArray = ["http://www.webpagepublicity.com/free-fonts/e/Earthquake%20MF.ttf", //0
                               "http://www.webpagepublicity.com/free-fonts/a/Alako-Bold.ttf", //1
                               "http://www.webpagepublicity.com/free-fonts/a/Amelia.ttf", //2
                               "http://www.webpagepublicity.com/free-fonts/a/Amazone%20BT.ttf", //3
                               "https://fonts.googleapis.com/css2?family=Open%20Sans", //4
-                              "https://fonts.googleapis.com/css?family=Tangerine"] //5
+                              "https://fonts.googleapis.com/css?family=Tangerine"] //5*/
     
-    subscript(index: Int) -> String{
-        return fontsArray[index]
+    private let fontsArray = ["Open Sans", "Roboto", "Georama"]
+    private let fontWeight: [FontWeight] = [.regular, .thin, .extralight, .light, .medium, .semibold, .bold, .extrabold, .black]
+    private let fontStyle: [FontStyle] = [.italic, .other]
+    
+    subscript(familyIndex: Int, weightIndex: Int, styleIndex: Int) -> String{
+        let urlGenerator = GoogleFontResourceCreator(familyName: fontsArray[familyIndex], style: fontStyle[styleIndex], weight: fontWeight[weightIndex])
+        let urlStr = urlGenerator.generateGoogleFontResourcePath()
+        return urlStr
     }
 }
 
@@ -34,10 +40,11 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     
         self.customFontLabel.text = "Hello World"
+        
     }
     
     @IBAction func pushNewFontButton(sender: Any) {
-        if let url = URL(string: fonts[4]) {
+        if let url = URL(string: fonts[2, 2, 0]) {
             Downloader.fetchFontMetaData(for: url) { (urlStr) in
                 let extractUrl: String = urlStr.between("url(", ")") ?? ""
                 let fontFamily: String = urlStr.between("font-family:", "font-style:") ?? ""
