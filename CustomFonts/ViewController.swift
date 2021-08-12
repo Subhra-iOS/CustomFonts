@@ -17,7 +17,7 @@ struct FontsCollection {
                               "http://www.webpagepublicity.com/free-fonts/a/Alako-Bold.ttf", //1
                               "http://www.webpagepublicity.com/free-fonts/a/Amelia.ttf", //2
                               "http://www.webpagepublicity.com/free-fonts/a/Amazone%20BT.ttf", //3
-                              "https://fonts.googleapis.com/css?family=Open%20Sans", //4
+                              "https://fonts.googleapis.com/css2?family=Open%20Sans", //4
                               "https://fonts.googleapis.com/css?family=Tangerine"] //5
     
     subscript(index: Int) -> String{
